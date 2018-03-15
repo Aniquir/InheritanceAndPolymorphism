@@ -33,8 +33,23 @@ public class Main {
         main.printAllBook(books);
         System.out.println("=======================================");
         main.printAllPeople(persons);
+        System.out.println("=======================================");
+        main.whatPeopleLikeReadandEat(persons);
+        System.out.println("=======================================");
+        persons.get(0).setName("Warwick");
+        main.whatPeopleLikeReadandEat(persons);
+
 
     }
+
+    private void whatPeopleLikeReadandEat(List<Person> persons) {
+        for (int i = 0; i < persons.size(); i++) {
+            System.out.println(persons.get(i).getName()
+                    + " likes read: " + persons.get(i).likesToRead()
+                    + " and likes eat: " + persons.get(i).likeToEat());
+        }
+    }
+
     public void printAllBook(List<Book> books){
 
         for (int i = 0; i < books.size(); i++) {
