@@ -3,7 +3,7 @@ package book;
 public class Book {
 
     private String title;
-    private int numerOfPages;
+    private int numberOfPages = 0;
 
     public String getTitle() {
         return title;
@@ -13,11 +13,11 @@ public class Book {
         this.title = title;
     }
 
-    public int getNumerOfPages() {
-        return numerOfPages;
+    public int getNumberOfPages() {
+        return numberOfPages;
     }
 
     public void setNumerOfPages(int numerOfPages) {
-        this.numerOfPages = numerOfPages;
+        this.numberOfPages = numerOfPages;
     }
 }

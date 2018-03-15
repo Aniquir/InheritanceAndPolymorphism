@@ -5,10 +5,19 @@ import book.Book;
 public class Person {
 
     private String name;
-    private int age;
 
     public void read(Person person, Book book){
-        System.out.println("Person " + person.getName() + " read book");
+        System.out.println("Person " + person.getName() + " read book entitled: " + book.getTitle());
+        System.out.println(person.getName() + " read " + book.getNumberOfPages() + " pages of " + book.getTitle());
+    }
+    public String likesToRead(){
+        return null;
+    }
+    public String likeToEat(){
+        return null;
+    }
+    public String thisIs(){
+        return "This is a ";
     }
 
     public String getName() {
@@ -19,11 +28,4 @@ public class Person {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 }
