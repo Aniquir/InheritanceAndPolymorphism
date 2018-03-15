@@ -5,21 +5,21 @@ import person.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
 
         List<Book> books = new ArrayList<>();
-        books.add(new HarryPotter());
         books.add(new Hobbit());
+        books.add(new HarryPotter());
         books.add(new Sonea());
         books.add(new Pipi());
         books.add(new BearsAdventures());
         books.add(new Missing());
-        books.add(new Clue());
         books.add(new Investigation());
-
+        books.add(new Clue());
 
         List<Person> persons = new ArrayList<>();
         persons.add(new GeekMan());
@@ -31,36 +31,58 @@ public class Main {
 
         Main main = new Main();
         main.printAllBook(books);
-        System.out.println("=======================================");
+
+        printNiceLine();
         main.printAllPeople(persons);
-        System.out.println("=======================================");
+
+        printNiceLine();
         main.whatPeopleLikeReadandEat(persons);
-        System.out.println("=======================================");
+
+        printNiceLine();
         persons.get(0).setName("Warwick");
         main.whatPeopleLikeReadandEat(persons);
 
+        printNiceLine();
+        main.whatReadInThisMoment(persons, books);
 
+    }
+
+
+    private void whatReadInThisMoment(List<Person> persons, List<Book> books) {
+        for (Person person : persons) {
+            person.read(person, books);
+            System.out.println("-------------------");
+        }
     }
 
     private void whatPeopleLikeReadandEat(List<Person> persons) {
-        for (int i = 0; i < persons.size(); i++) {
-            System.out.println(persons.get(i).getName()
-                    + " likes read: " + persons.get(i).likesToRead()
-                    + " and likes eat: " + persons.get(i).likeToEat());
+        for (Person person : persons) {
+            System.out.println(person.getName()
+                    + " likes read: " + person.likesToRead()
+                    + " and likes eat: " + person.likeToEat());
         }
     }
 
-    public void printAllBook(List<Book> books){
+    private void printAllBook(List<Book> books) {
 
-        for (int i = 0; i < books.size(); i++) {
-            System.out.println("Title: " + books.get(i).getTitle()
-                    + ", number of pages: "+ books.get(i).getNumberOfPages() );
+        for (Book book : books) {
+            System.out.println("Title: " + book.getTitle()
+                    + ", number of pages: " + book.getNumberOfPages());
         }
     }
-    public void printAllPeople(List<Person> persons){
 
-        for (int i = 0; i < persons.size(); i++) {
-            System.out.println(persons.get(i).thisIs());
+    private void printAllPeople(List<Person> persons) {
+
+        for (Person person : persons) {
+            person.thisIs();
         }
+    }
+
+    private static void printNiceLine() {
+        System.out.println("============" +
+                "=======================" +
+                "=======================" +
+                "=======================" +
+                "=================");
     }
 }
